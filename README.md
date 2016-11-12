@@ -28,9 +28,10 @@ Looking on other time series databases, the API looks as the following one:
 
 ### /write
 
-* db = <db_name>
-* data = '<measurement>,[<tag_1>=<t_val_1> ... <tag_n>=<t_val_n>, value=<value> <epoch ts> ...'
-
+```
+db = <db_name>
+data = '<measurement>,[<tag_1>=<t_val_1> ... <tag_n>=<t_val_n>, value=<value> <epoch ts> ...'
+```
 
 ### /query
 
