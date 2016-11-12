@@ -26,20 +26,38 @@ The following table shows some high level requirements for such a service.
 | 1.4           | Tag retrieval  | It should be possible to list all tags those are belonging to a measurement|
 | 1.5          | Filter by tags  | We need to be able to filter by tags|
 
-## Is there a Standard API?
+## Is there a Standard?
 
 It does not look like it. Looking on another time series database, the API looks for instance as the following one:
 
-### /write
-
 ```
+/write
 db = <db_name>
 data = '<measurement>,[<tag_1>=<t_val_1> ... <tag_n>=<t_val_n>], value=<value> <epoch ts> ...'
-```
 
-### /query
-
-```
+/query
 db = <db_name>
 pretty = [true|false]
 q = SELECT <asterisk_value_or_tags> FROM <measurement> WHERE <condition_on_tags>
+```
+
+## API proposal
+
+The following API seems to be suitable
+
+### Create
+
+```
+POST /write/<dbname>
+
+{
+  "measurement" : "<measurement>",
+  "tags" : [ { name = "<tag_1>", value = "<t_val_1>"} , ... ],
+  "value" : <value>,
+  "ts" : <ts>
+}
+```
+
+### Update
+
+
