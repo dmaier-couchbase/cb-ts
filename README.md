@@ -21,8 +21,10 @@ The following table shows some high level requirements for such a service.
 | 0.4            | Updates  | The same measurement at exactly the same time overrides an existing measurement|
 | 1             | Data retrieval     | It needs to be possible to retrieve data points by time|
 | 1.1           | Range queries      | You should be able to provide a time range in order to retrieve data points|
-| 1.2           | Filter by metric   | It needs to be possible to provide a set of measurments you are interested in|
-| 1.3           | Metric retrieval   | It should be possible to list all available metrics|
+| 1.2           | Filter by measurement   | It needs to be possible to provide a set of measurments you are interested in|
+| 1.3           | Measurement retrieval   | It should be possible to list all available metrics|
+| 1.4           | Tag retrieval  | It should be possible to list all tags those are belonging to a measurement|
+| 1.5          | Filter by tags  | We need to be able to filter by tags|
 
 ## Is there a standard
 
