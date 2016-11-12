@@ -26,9 +26,9 @@ The following table shows some high level requirements for such a service.
 | 1.4           | Tag retrieval  | It should be possible to list all tags those are belonging to a measurement|
 | 1.5          | Filter by tags  | We need to be able to filter by tags|
 
-## Is there a standard
+## Is there a Standard
 
-Looking on other time series databases, the API looks as the following one:
+It does not look like it. Looking on another time series database, the API looks for instance as the following one:
 
 ### /write
 
