@@ -60,4 +60,12 @@ POST /write/<dbname>
 
 ### Update
 
+```
+PUT /write/<dbname>/<measurement>/<ts>
+
+{
+  "tags" : [ { name = "<tag_1>", value = "<t_val_1>"} , ... ],
+  "value" : <value>
+}
+```
 
