@@ -118,7 +118,7 @@ GET /list/<dbname>/tags
 ### Query
 
 ```
-GET /query/<dbname>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,..._from=<from>&time_to=<to>&measurements=<measurement_1,...>
+GET /query/<dbname>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&time_from=<from>&time_to=<to>&measurements=<measurement_1,...>
 GET /query/<dbname>/<measurement>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&time_from=<from>&time_to=<to>
 
 {
@@ -126,7 +126,7 @@ GET /query/<dbname>/<measurement>?include_value=<true|false>&include_tags=<tag_l
         {
             "series": [
                 {
-                    "name": "<measurement>",
+                    "measurement": "<measurement>",
                     "columns": [
                         "time",
                         "value",
