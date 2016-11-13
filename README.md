@@ -81,7 +81,7 @@ POST /write/<dbname>
   "measurement" : "<measurement>",
   "tags" : [ { name = "<tag_1>", value = "<t_val_1>"} , ... ],
   "value" : <value>,
-  "ts" : <ts>
+  "time" : <ts>
 }
 
 or
@@ -91,7 +91,7 @@ or
     "measurement" : "<measurement>",
     "tags" : [ { name = "<tag_1>", value = "<t_val_1>"} , ... ],
     "value" : <value>,
-    "ts" : <ts>
+    "time" : <ts>
  },
 ...
 ]
@@ -100,7 +100,7 @@ or
 ### Update
 
 ```
-PUT /write/<dbname>/<measurement>/<ts>
+PUT /write/<dbname>/<measurement>/<time>
 
 {
   "tags" : [ { name = "<tag_1>", value = "<t_val_1>"} , ... ],
@@ -118,8 +118,8 @@ GET /list/<dbname>/tags
 ### Query
 
 ```
-GET /query/<dbname>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&ts_from=<from>&ts_to=<to>&measurements=<measurement_1,...>
-GET /query/<dbname>/<measurement>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&ts_from=<from>&ts_to=<to>
+GET /query/<dbname>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,..._from=<from>&time_to=<to>&measurements=<measurement_1,...>
+GET /query/<dbname>/<measurement>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&time_from=<from>&time_to=<to>
 
 {
     "results": [
