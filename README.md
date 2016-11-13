@@ -16,15 +16,18 @@ The following table shows some high level requirements for such a service.
 | ------------- |:------------------:| ----------------------------------------------------:|
 | 0             | Data point storage | It needs to be possible to store data points by time |
 | 0.1           | Tuple character    | A data point is basically a tuple of numeric values (measurement), whereby the storage key is a time stamp |
-| 0.2            | Multi-pont    | It needs to be possible to store multiple data points in one step|
+| 0.2            | Multi-point     | It needs to be possible to store multiple data points in one step|
 | 0.3            | Tag support   | It should be possible to add tags to data points when storing them|
 | 0.4            | Updates  | The same measurement at exactly the same time overrides an existing measurement|
 | 1             | Data retrieval     | It needs to be possible to retrieve data points by time|
 | 1.1           | Range queries      | You should be able to provide a time range in order to retrieve data points|
-| 1.2           | Filter by measurement   | It needs to be possible to provide a set of measurments you are interested in|
-| 1.3           | Measurement retrieval   | It should be possible to list all available metrics|
-| 1.4           | Tag retrieval  | It should be possible to list all tags those are belonging to a measurement|
-| 1.5          | Filter by tags  | We need to be able to filter by tags|
+| 1.2           | Measurment support  | Multiple measurements should be supported|
+| 1.2.1           | Filter by measurement   | It needs to be possible to provide a set of measurments you are interested in|
+| 1.2.2           | Measurement retrieval   | It should be possible to list all available metrics|
+| 1.3           | Tag support  | It should be possible to tag measurements at a specific time|
+| 1.3.1          | Filter by tags  | We need to be able to filter by tags|
+| 1.3.2           | Tag retrieval  | It should be possible to list all tags those are belonging to a measurement|
+
 
 ## Is there a Standard?
 
