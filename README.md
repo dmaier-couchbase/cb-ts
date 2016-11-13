@@ -120,4 +120,34 @@ GET /list/<dbname>/tags
 ```
 GET /query/<dbname>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&ts_from=<from>&ts_to=<to>&measurements=<measurement_1,...>
 GET /query/<dbname>/<measurement>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&ts_from=<from>&ts_to=<to>
+
+{
+    "results": [
+        {
+            "series": [
+                {
+                    "name": "<measurement>",
+                    "columns": [
+                        "time",
+                        "value",
+                        "<tag_1>",
+                        ...
+                    ],
+                    "values": [
+                        [
+                            "<timestamp, eg. 2015-01-29T21:55:43.702900257Z>",
+                            "<value, e.g. 0.55>",
+                            "<tag_val_1>",
+                            ...
+                            
+                        ],
+                        ...
+                    ],
+                    ...
+                }
+            ]
+        }
+    ]
+
 ```
+
