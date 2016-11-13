@@ -142,10 +142,10 @@ GET /query/<dbname>/<measurement>?include_value=<true|false>&include_tags=<tag_l
                             
                         ],
                         ...
-                    ],
-                    ...
+                    ]
                 }
-            ]
+            ],
+            ...
         }
     ]
 
