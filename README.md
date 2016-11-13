@@ -24,7 +24,7 @@ The following table shows some high level requirements for such a service.
 | 1.2           | Measurment support  | Multiple measurements should be supported|
 | 1.2.1           | Filter by measurement   | It needs to be possible to provide a set of measurments you are interested in|
 | 1.2.2           | Measurement retrieval   | It should be possible to list all available metrics|
-| 1.3           | Tag support  | It should be possible to tag measurements at a specific time|
+| 1.3           | Tag (annotation) support  | It should be possible to tag measurements at a specific time|
 | 1.3.1          | Filter by tags  | We need to be able to filter by tags|
 | 1.3.2           | Tag retrieval  | It should be possible to list all tags those are belonging to a measurement|
 
@@ -34,11 +34,11 @@ The following table shows some high level requirements for such a service.
 It does not look like it. Looking on another time series database, the API looks for instance as the following one:
 
 ```
-/write
+POST /write
 db = <db_name>
 data = '<measurement>,[<tag_1>=<t_val_1> ... <tag_n>=<t_val_n>], value=<value> <epoch ts> ...'
 
-/query
+GET /query
 db = <db_name>
 pretty = [true|false]
 q = SELECT <asterisk_value_or_tags> FROM <measurement> WHERE <condition_on_tags>
@@ -47,6 +47,30 @@ q = SELECT <asterisk_value_or_tags> FROM <measurement> WHERE <condition_on_tags>
 ## API proposal
 
 The following API seems to be suitable
+
+### Connect
+
+```
+POST /init/<dbname>
+
+{
+   "admin" : "<admin>",
+   "admin_pwd" : <"admin_pwd">,
+   "db_pwd" : "<db_pwd>"
+}
+
+GET /<dbname>
+
+{ 
+  "db" : "<dbname>",
+  "connected" : true|false,
+}
+
+GET /
+
+{  "databases" : ["<db_name>", ...] }
+```
+
 
 ### Create
 
@@ -59,6 +83,18 @@ POST /write/<dbname>
   "value" : <value>,
   "ts" : <ts>
 }
+
+or
+
+[
+ {
+    "measurement" : "<measurement>",
+    "tags" : [ { name = "<tag_1>", value = "<t_val_1>"} , ... ],
+    "value" : <value>,
+    "ts" : <ts>
+ },
+...
+]
 ```
 
 ### Update
@@ -72,4 +108,16 @@ PUT /write/<dbname>/<measurement>/<ts>
 }
 ```
 
-...
+### List
+
+```
+GET /list/<dbname>/measurements
+GET /list/<dbname>/tags
+```
+
+### Query
+
+```
+GET /query/<dbname>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&ts_from=<from>&ts_to=<to>&measurements=<measurement_1,...>
+GET /query/<dbname>/<measurement>?include_value=<true|false>&include_tags=<tag_list|true|false>&filters=<tag_name=tag_value,...>&ts_from=<from>&ts_to=<to>
+```
